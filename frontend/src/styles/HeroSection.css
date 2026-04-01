@@ -1,0 +1,348 @@
+/* ── HeroSection ──────────────────────────────────────────────────────────
+   Tasarım yönü: Karanlık, keskin, otomotiv lüksü.
+   Barlow Condensed büyük başlık + DM Sans body.
+   Sol metin / sağ önce-sonra karşılaştırma.
+   Mobil first → tek sütun, ardından desktop'ta iki sütun.
+─────────────────────────────────────────────────────────────────────────── */
+
+
+
+/* ── Section ── */
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  background: var(--color-primary);
+  overflow: hidden;
+}
+
+/* ── Arkaplan ── */
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero__bg-gradient {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 70% 60% at 70% 50%, rgba(233,69,96,0.08) 0%, transparent 65%),
+    radial-gradient(ellipse 50% 40% at 10% 80%, rgba(201,168,76,0.05) 0%, transparent 60%);
+}
+
+/* ince ızgara dokusu */
+.hero__bg-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%);
+}
+
+.hero__bg-glow {
+  position: absolute;
+  top: -20%;
+  right: -10%;
+  width: 60%;
+  height: 70%;
+  background: radial-gradient(ellipse, rgba(233,69,96,0.07) 0%, transparent 65%);
+  filter: blur(40px);
+}
+
+/* ── Container ── */
+.hero__container {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+  padding: 7rem 1.5rem 3rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* ── METIN BLOĞU ── */
+.hero__text {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  max-width: 560px;
+  width: 100%;
+}
+
+/* Badge */
+.hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--color-gold);
+  background: rgba(201,168,76,0.1);
+  border: 1px solid rgba(201,168,76,0.25);
+  padding: 0.3rem 0.85rem;
+  border-radius: 100px;
+  width: fit-content;
+  animation: hero-fadein 0.6s ease both;
+}
+
+.hero__badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-gold);
+  animation: dot-pulse 2s ease-in-out infinite;
+}
+
+@keyframes dot-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.4; transform: scale(0.7); }
+}
+
+/* Başlık */
+.hero__headline {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 6vw, 4.5rem);
+  font-weight: 900;
+  line-height: 1.0;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: var(--color-text);
+  animation: hero-fadein 0.6s 0.1s ease both;
+}
+
+/* Aksanı kırmızı yap */
+.hero__headline em {
+  font-style: normal;
+  color: var(--color-accent);
+}
+
+/* Alt açıklama */
+.hero__sub {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: rgba(240,240,240,0.6);
+  line-height: 1.65;
+  animation: hero-fadein 0.6s 0.2s ease both;
+}
+
+/* CTA butonları */
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  animation: hero-fadein 0.6s 0.3s ease both;
+}
+
+.hero__call-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-text);
+  background: transparent;
+  border: 2px solid rgba(240,240,240,0.2);
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease, transform 0.18s ease;
+}
+
+.hero__call-btn:hover {
+  border-color: rgba(240,240,240,0.5);
+  background: rgba(240,240,240,0.05);
+  transform: translateY(-2px);
+}
+
+.hero__call-btn svg { flex-shrink: 0; }
+
+/* Güven sinyalleri */
+.hero__trust {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  animation: hero-fadein 0.6s 0.4s ease both;
+}
+
+.hero__trust-item {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.hero__trust-icon { font-size: 0.9rem; }
+
+.hero__trust-label {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  color: rgba(240,240,240,0.45);
+  font-weight: 500;
+}
+
+/* ── GÖRSEL BLOK ── */
+.hero__visual {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  animation: hero-fadein 0.7s 0.2s ease both;
+}
+
+.hero__compare {
+  display: flex;
+  gap: 0.5rem;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+.hero__compare-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.hero__compare-img {
+  width: 100%;
+  aspect-ratio: 16/10;
+  overflow: hidden;
+}
+
+.hero__compare-img svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.hero__compare-label {
+  position: absolute;
+  bottom: 0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: rgba(0,0,0,0.65);
+  color: rgba(240,240,240,0.75);
+  padding: 0.2rem 0.6rem;
+  border-radius: 100px;
+  white-space: nowrap;
+}
+
+.hero__compare-panel--after .hero__compare-label {
+  color: var(--color-accent);
+}
+
+/* Orta divider */
+.hero__compare-divider {
+  position: absolute;
+  left: 50%;
+  top: 0; bottom: 0;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.hero__compare-line {
+  width: 2px;
+  flex: 1;
+  background: linear-gradient(to bottom, transparent, var(--color-accent), transparent);
+}
+
+.hero__compare-handle {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: var(--color-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  box-shadow: 0 0 16px rgba(233,69,96,0.5);
+  flex-shrink: 0;
+}
+
+/* Köşe dekoratif çerçeve */
+.hero__visual-frame {
+  position: absolute;
+  inset: -8px;
+  border-radius: 12px;
+  border: 1px solid rgba(233,69,96,0.15);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* ── Scroll hint ── */
+.hero__scroll-hint {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 1.5rem;
+}
+
+.hero__scroll-line {
+  width: 1px;
+  height: 48px;
+  background: linear-gradient(to bottom, rgba(233,69,96,0.6), transparent);
+  animation: scroll-drop 1.8s ease-in-out infinite;
+}
+
+@keyframes scroll-drop {
+  0%   { opacity: 0; transform: scaleY(0); transform-origin: top; }
+  40%  { opacity: 1; transform: scaleY(1); }
+  100% { opacity: 0; transform: translateY(12px); }
+}
+
+/* ── Genel animasyon ── */
+@keyframes hero-fadein {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Desktop: yan yana ─────────────────────────────────────────────────── */
+@media (min-width: 900px) {
+  .hero__container {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8rem 3rem 4rem;
+    gap: 4rem;
+  }
+
+  .hero__text { max-width: 500px; }
+
+  .hero__visual {
+    max-width: 480px;
+    flex-shrink: 0;
+  }
+}
+
+@media (min-width: 1200px) {
+  .hero__text { max-width: 560px; }
+  .hero__visual { max-width: 520px; }
+}
+
+/* ── Küçük mobil ── */
+@media (max-width: 400px) {
+  .hero__headline { font-size: 2rem; }
+  .hero__actions { flex-direction: column; }
+  .hero__call-btn, .hero__actions .wa-btn { width: 100%; justify-content: center; }
+}

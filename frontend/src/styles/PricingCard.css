@@ -1,0 +1,146 @@
+/* ── PricingCard ─────────────────────────────────────────────────────────── */
+
+.pcard {
+  position: relative;
+  background: var(--color-surface, #16213E);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 8px;
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+
+  opacity: 0;
+  transform: translateY(20px);
+  animation: pcard-enter 0.5s ease forwards;
+  animation-delay: calc(var(--stagger, 0) * 0.1s);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+@keyframes pcard-enter {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.pcard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+}
+
+/* ── Popular variant ── */
+.pcard--popular {
+  border-color: var(--color-accent, #E94560);
+  box-shadow: 0 0 0 1px var(--color-accent, #E94560),
+              0 8px 40px rgba(233, 69, 96, 0.18);
+  background: linear-gradient(
+    160deg,
+    rgba(233, 69, 96, 0.06) 0%,
+    var(--color-surface, #16213E) 60%
+  );
+}
+
+.pcard--popular:hover {
+  box-shadow: 0 0 0 1px var(--color-accent, #E94560),
+              0 12px 48px rgba(233, 69, 96, 0.28);
+}
+
+/* ── Badge ── */
+.pcard__badge {
+  position: absolute;
+  top: -0.75rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--color-accent, #E94560);
+  color: #fff;
+  font-family: var(--font-body, "DM Sans", sans-serif);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.875rem;
+  border-radius: 100px;
+  white-space: nowrap;
+}
+
+/* ── Header ── */
+.pcard__header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.pcard__title {
+  font-family: var(--font-display, "Barlow Condensed", sans-serif);
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(240, 240, 240, 0.7);
+}
+
+.pcard__price {
+  display: flex;
+  align-items: baseline;
+  gap: 0.2rem;
+  line-height: 1;
+}
+
+.pcard__currency {
+  font-family: var(--font-body, "DM Sans", sans-serif);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-text, #F0F0F0);
+  align-self: flex-start;
+  margin-top: 0.3rem;
+}
+
+.pcard__amount {
+  font-family: var(--font-display, "Barlow Condensed", sans-serif);
+  font-size: 2.75rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--color-text, #F0F0F0);
+}
+
+.pcard--popular .pcard__amount {
+  color: var(--color-accent, #E94560);
+}
+
+/* ── Features ── */
+.pcard__features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  flex: 1;
+}
+
+.pcard__feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  font-family: var(--font-body, "DM Sans", sans-serif);
+  font-size: 0.875rem;
+  color: rgba(240, 240, 240, 0.7);
+  line-height: 1.5;
+}
+
+.pcard__check {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: var(--color-accent, #E94560);
+}
+
+.pcard--popular .pcard__feature { color: rgba(240, 240, 240, 0.85); }
+
+/* ── CTA ── */
+.pcard__cta { margin-top: auto; }
+
+/* ── Responsive ── */
+@media (max-width: 480px) {
+  .pcard { padding: 1.5rem 1.25rem; }
+  .pcard__amount { font-size: 2.25rem; }
+}

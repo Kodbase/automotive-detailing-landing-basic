@@ -1,0 +1,202 @@
+/* ── FooterSection ───────────────────────────────────────────────────────── */
+
+.footer {
+  padding: 4rem 1.5rem 2rem;
+  background: var(--color-surface, #16213E);
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.footer__bg {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 70% 60% at 50% 100%, rgba(233, 69, 96, 0.04) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* ── Container ── */
+.footer__container {
+  max-width: 1100px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+/* ── Üst satır ── */
+.footer__top {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+}
+
+@media (min-width: 640px) {
+  .footer__top {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
+  .footer__top {
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    align-items: start;
+  }
+}
+
+/* ── Marka ── */
+.footer__brand {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.footer__logo {
+  font-family: var(--font-display, "Barlow Condensed", sans-serif);
+  font-size: 1.5rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-text, #F0F0F0);
+}
+
+/* accent çizgi altında */
+.footer__logo::after {
+  content: "";
+  display: block;
+  width: 2rem;
+  height: 2px;
+  background: var(--color-accent, #E94560);
+  margin-top: 0.4rem;
+  border-radius: 1px;
+}
+
+.footer__tagline {
+  font-family: var(--font-body, "DM Sans", sans-serif);
+  font-size: 0.875rem;
+  color: rgba(240, 240, 240, 0.45);
+  margin: 0;
+  line-height: 1.6;
+}
+
+.footer__wa {
+  margin-top: 0.25rem;
+}
+
+/* ── Kolonlar ── */
+.footer__col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footer__col-title {
+  font-family: var(--font-display, "Barlow Condensed", sans-serif);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(240, 240, 240, 0.35);
+  margin: 0 0 0.25rem;
+}
+
+.footer__link {
+  font-family: var(--font-body, "DM Sans", sans-serif);
+  font-size: 0.9rem;
+  color: rgba(240, 240, 240, 0.7);
+  text-decoration: none;
+  transition: color 0.18s ease;
+  width: fit-content;
+}
+
+.footer__link:hover {
+  color: var(--color-text, #F0F0F0);
+}
+
+.footer__link--accent {
+  color: var(--color-accent, #E94560);
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.footer__link--accent:hover {
+  color: #ff6b82;
+}
+
+.footer__text {
+  font-family: var(--font-body, "DM Sans", sans-serif);
+  font-size: 0.9rem;
+  color: rgba(240, 240, 240, 0.7);
+}
+
+/* ── Sosyal link ── */
+.footer__social {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.footer__social-icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+/* ── Alt çizgi ── */
+.footer__bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  text-align: center;
+}
+
+@media (min-width: 640px) {
+  .footer__bottom {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+  }
+}
+
+.footer__rights {
+  font-family: var(--font-body, "DM Sans", sans-serif);
+  font-size: 0.75rem;
+  color: rgba(240, 240, 240, 0.25);
+  margin: 0;
+}
+
+/* ── Dil toggle ── */
+.footer__lang {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  padding: 0.25rem 0.65rem;
+  cursor: pointer;
+  font-family: var(--font-body, "DM Sans", sans-serif);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: rgba(240, 240, 240, 0.35);
+  transition: border-color 0.18s ease, color 0.18s ease;
+}
+
+.footer__lang:hover {
+  border-color: rgba(255, 255, 255, 0.25);
+  color: rgba(240, 240, 240, 0.7);
+}
+
+.footer__lang-sep {
+  opacity: 0.25;
+}
+
+.footer__lang-active {
+  color: var(--color-accent, #E94560);
+}
