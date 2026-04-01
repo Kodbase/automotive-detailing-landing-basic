@@ -3,11 +3,11 @@
 // ─────────────────────────────────────────────
 
 export const BUSINESS = {
-  name: "AutoDetail Bursa",
-  phone: "+90 XXX XXX XX XX",           // ← gerçek numara
-  whatsapp: "905XXXXXXXXX",              // ← ülke kodu + numara, başında + yok
-  instagram: "@autodetail.bursa",        // ← gerçek handle
-  instagramUrl: "https://instagram.com/autodetail.bursa",
+  name: "Revive Auto Lab",
+  phone: "+90 544 371 27 59",           // ← gerçek numara
+  whatsapp: "905443712759",              // ← ülke kodu + numara, başında + yok
+  instagram: "@_kodbase_",        // ← gerçek handle
+  instagramUrl: "https://instagram.com/_kodbase_",
   googleMapsUrl: "https://maps.google.com/?q=Bursa",  // ← gerçek pin
   city: "Bursa",
 };
